@@ -1,4 +1,6 @@
 import 'package:ecom/constants/global_variables.dart';
+import 'package:ecom/features/auth/screens/auth_screen.dart';
+import 'package:ecom/router.dart';
 import 'package:flutter/material.dart';
 
 void main() {
@@ -24,24 +26,8 @@ class MyApp extends StatelessWidget {
           ),
         ),
       ),
-      home: Scaffold(
-        appBar: AppBar(
-          title: const Center(
-            child: Text('aaaaa'),
-          ),
-        ),
-        body: Column(
-          children: [
-            const Center(
-              child: Text('Flutter Demo Home Page'),
-            ),
-            ElevatedButton(
-              onPressed: () {},
-              child: const Text('aaaaaaaaaaaa'),
-            )
-          ],
-        ),
-      ),
+      onGenerateRoute: (settings) => generateRoute(settings),
+      home:const AuthScreen(),
     );
   }
 }
