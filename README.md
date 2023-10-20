@@ -1,16 +1,17 @@
-# ecom
+# ECOM - Aplicativo de Compras E-commerce
 
-A new Flutter project.
+## Descrição
 
-## Getting Started
+O **ECOM** é um aplicativo de compras e-commerce desenvolvido com as tecnologias Flutter, Dart, JavaScript, Node.js, Express, MongoDB e Mongoose. Ele oferece uma experiência completa de compras online, com recursos como autenticação, pesquisa de produtos, carrinho de compras, pagamento com Google Pay/Apple Pay e muito mais.
 
-This project is a starting point for a Flutter application.
+## Requisitos
 
-A few resources to get you started if this is your first Flutter project:
-
-- [Lab: Write your first Flutter app](https://docs.flutter.dev/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://docs.flutter.dev/cookbook)
-
-For help getting started with Flutter development, view the
-[online documentation](https://docs.flutter.dev/), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+- [Flutter](https://flutter.dev/)
+- [Dart](https://dart.dev/)
+- [JavaScript](https://www.javascript.com/)
+- [Node.js](https://nodejs.org/)
+- [Express](https://expressjs.com/)
+- [MongoDB](https://www.mongodb.com/)
+- [Mongoose](https://mongoosejs.com/)
+- [Cloudinary](https://cloudinary.com/)
+- [Provedor (Flutter State Management)](https://pub.dev/packages/provider)

@@ -40,11 +40,16 @@ class _AuthScreenState extends State<AuthScreen> {
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
-              const Text(
-                'Bem Vindo',
-                style: TextStyle(
-                  fontSize: 22,
-                  fontWeight: FontWeight.w500,
+              const Padding(
+                padding: EdgeInsets.fromLTRB(0, 50, 0, 30),
+                child: Center(
+                  child:  Text(
+                    'Bem Vindo Ecom, seu app de compras',
+                    style: TextStyle(
+                      fontSize: 22,
+                      fontWeight: FontWeight.w500,
+                    ),
+                  ),
                 ),
               ),
               ListTile(
