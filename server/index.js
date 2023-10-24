@@ -6,6 +6,7 @@ const PORT = 3000;
 const app = express();
 const DB = "mongodb+srv://thallis:ola12345@cluster0.rt48xkp.mongodb.net/?retryWrites=true&w=majority"
 
+app.use(express.json());
 app.use(authRouter);
 
 mongoose.connect(DB).then(() => {
