@@ -14,6 +14,6 @@ mongoose.connect(DB).then(() => {
 }).catch((e)=> {console.log(e);
 })
 
-app.listen(PORT, () => {
+app.listen(PORT, "0.0.0.0",() => {
     console.log(`Conectado na porta ${PORT}.`);
 });

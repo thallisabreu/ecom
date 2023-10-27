@@ -9,7 +9,7 @@ const userSchema = mongoose.Schema({
             required: true,
             type: String,
             trim: true,
-        validate:{
+            validate:{
             validator: (value)=>{
                 const re =
           /^(([^<>()[\]\.,;:\s@\"]+(\.[^<>()[\]\.,;:\s@\"]+)*)|(\".+\"))@(([^<>()[\]\.,;:\s@\"]+\.)+[^<>()[\]\.,;:\s@\"]{2,})$/i;
