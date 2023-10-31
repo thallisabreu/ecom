@@ -1,6 +1,7 @@
 import 'package:ecom/common/widgets/costom_textfield.dart';
 import 'package:ecom/common/widgets/custom_buttom.dart';
 import 'package:ecom/constants/global_variables.dart';
+import 'package:ecom/features/auth/services/auth_service.dart';
 import 'package:flutter/material.dart';
 
 enum Auth { signin, signup }
@@ -16,8 +17,8 @@ class AuthScreen extends StatefulWidget {
 class _AuthScreenState extends State<AuthScreen> {
   Auth _auth = Auth.signup;
   final _signUpFormkey = GlobalKey<FormState>();
-  // ignore: unused_field
   final _signinFormkey = GlobalKey<FormState>();
+  final AuthService authService = AuthService();
   final TextEditingController _emailController = TextEditingController();
   final TextEditingController _passwordController = TextEditingController();
   final TextEditingController _nameController = TextEditingController();
@@ -28,6 +29,14 @@ class _AuthScreenState extends State<AuthScreen> {
     _emailController.dispose();
     _passwordController.dispose();
     _nameController.dispose();
+  }
+
+  void signUpUser() {
+    authService.signUpUser(
+        context: context,
+        email: _emailController.text,
+        password: _passwordController.text,
+        name: _nameController.text);
   }
 
   @override
@@ -43,7 +52,7 @@ class _AuthScreenState extends State<AuthScreen> {
               const Padding(
                 padding: EdgeInsets.fromLTRB(0, 50, 0, 30),
                 child: Center(
-                  child:  Text(
+                  child: Text(
                     'Bem Vindo Ecom, seu app de compras',
                     style: TextStyle(
                       fontSize: 22,
@@ -104,7 +113,11 @@ class _AuthScreenState extends State<AuthScreen> {
                         ),
                         CustomButton(
                           text: 'Criar conta',
-                          onTap: () {},
+                          onTap: () {
+                            if(_signUpFormkey.currentState!.validate()){
+                              signUpUser();
+                            }
+                          },
                         )
                       ],
                     ),
