@@ -1,4 +1,5 @@
 
+import 'package:ecom/common/widgets/loader.dart';
 import 'package:ecom/features/account/widgets/single_product.dart';
 import 'package:ecom/features/admin/screens/add_product._screeen.dart';
 import 'package:ecom/features/admin/services/admin_services.dart';
@@ -45,7 +46,7 @@ class _PostsScreenState extends State<PostsScreen> {
   @override
   Widget build(BuildContext context) {
     return products == null
-        ?  Container()
+        ?  const Loader()
         : Scaffold(
             body: GridView.builder(
               itemCount: products!.length,

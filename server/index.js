@@ -2,6 +2,7 @@ const express = require("express");
 const mongoose = require('mongoose');
 const authRouter = require("./routes/auth");
 const adminRouter = require("./routes/admin");
+const productRouter = require("./routes/product");
 
 const PORT = 3000;
 const app = express();
@@ -10,6 +11,7 @@ const DB = "mongodb+srv://thallis:ola12345@cluster0.rt48xkp.mongodb.net/?retryWr
 app.use(express.json());
 app.use(authRouter);
 app.use(adminRouter);
+app.use(productRouter);
 
 mongoose.connect(DB).then(() => {
     console.log('Conexão deu certo!');
