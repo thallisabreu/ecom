@@ -5,7 +5,6 @@ import 'package:ecom/home/widgets/carousel_image.dart';
 import 'package:ecom/home/widgets/deal_of_day.dart';
 import 'package:ecom/home/widgets/top_categories.dart';
 import 'package:flutter/material.dart';
-
 class HomeScreen extends StatefulWidget {
   static const String routeName = '/home';
   const HomeScreen({Key? key}) : super(key: key);
@@ -94,9 +93,9 @@ class _HomeScreenState extends State<HomeScreen> {
           ),
         ),
       ),
-      body: const SingleChildScrollView(
+      body: SingleChildScrollView(
         child: Column(
-          children: [
+          children: const [
             AddressBox(),
             SizedBox(height: 10),
             TopCategories(),

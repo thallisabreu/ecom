@@ -1,6 +1,7 @@
 // IMPORTS FROM PACKAGES
 const express = require("express");
 const mongoose = require("mongoose");
+const cors = require("cors");
 const adminRouter = require("./routes/admin");
 // IMPORTS FROM OTHER FILES
 const authRouter = require("./routes/auth");
@@ -9,10 +10,11 @@ const userRouter = require("./routes/user");
 
 const PORT = process.env.PORT || 3000;
 const app = express();
-const DB = "mongodb+srv://thallis:ola12345@cluster0.rt48xkp.mongodb.net/?retryWrites=true&w=majority"
+const DB = "mongodb+srv://thallis:ola12345@cluster0.rt48xkp.mongodb.net/?retryWrites=true&w=majority";
 
-// middleware
+// Middleware
 app.use(express.json());
+app.use(cors()); // Adicionado o middleware cors antes das rotas
 app.use(authRouter);
 app.use(adminRouter);
 app.use(productRouter);

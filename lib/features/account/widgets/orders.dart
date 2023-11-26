@@ -1,6 +1,10 @@
- 
+
+import 'package:ecom/common/widgets/loader.dart';
 import 'package:ecom/constants/global_variables.dart';
+import 'package:ecom/features/account/service/account_services.dart';
 import 'package:ecom/features/account/widgets/single_product.dart';
+import 'package:ecom/features/order_details.dart/screens/order_details.dart';
+import 'package:ecom/models/order.dart';
 import 'package:flutter/material.dart';
 
 class Orders extends StatefulWidget {
@@ -11,18 +15,8 @@ class Orders extends StatefulWidget {
 }
 
 class _OrdersState extends State<Orders> {
-  List list = [
-    'https://images.unsplash.com/photo-1498050108023-c5249f4df085?w=300&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTB8fG5vdGVib29rfGVufDB8fDB8fHww,',
-
-    'https://images.unsplash.com/photo-1498050108023-c5249f4df085?w=300&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTB8fG5vdGVib29rfGVufDB8fDB8fHww,',
-
-    'https://images.unsplash.com/photo-1498050108023-c5249f4df085?w=300&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTB8fG5vdGVib29rfGVufDB8fDB8fHww,',
-
-    'https://images.unsplash.com/photo-1498050108023-c5249f4df085?w=300&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTB8fG5vdGVib29rfGVufDB8fDB8fHww,',
-];
-
-  // List<Order>? orders;
-  // final AccountServices accountServices = AccountServices();
+  List<Order>? orders;
+  final AccountServices accountServices = AccountServices();
 
   @override
   void initState() {
@@ -31,13 +25,15 @@ class _OrdersState extends State<Orders> {
   }
 
   void fetchOrders() async {
-    // orders = await accountServices.fetchMyOrders(context: context);
+    orders = await accountServices.fetchMyOrders(context: context);
     setState(() {});
   }
 
   @override
   Widget build(BuildContext context) {
-    return Column(
+    return orders == null
+        ? const Loader()
+        : Column(
             children: [
               Row(
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
@@ -47,7 +43,7 @@ class _OrdersState extends State<Orders> {
                       left: 15,
                     ),
                     child: const Text(
-                      'Seus pedidos',
+                      'Your Orders',
                       style: TextStyle(
                         fontSize: 18,
                         fontWeight: FontWeight.w600,
@@ -59,7 +55,7 @@ class _OrdersState extends State<Orders> {
                       right: 15,
                     ),
                     child: Text(
-                      'Ver tudo',
+                      'See all',
                       style: TextStyle(
                         color: GlobalVariables.selectedNavBarColor,
                       ),
@@ -77,21 +73,20 @@ class _OrdersState extends State<Orders> {
                 ),
                 child: ListView.builder(
                   scrollDirection: Axis.horizontal,
-                  itemCount: list.length,
+                  itemCount: orders!.length,
                   itemBuilder: (context, index) {
-                    return SingleProduct(
-                      image: list[index],);
-                      // onTap: () {
-                        // Navigator.pushNamed(
-                        //   context,
-                        //     OrderDetailScreen.routeName,
-                        //   arguments: orders![index],
-                        // );
-                      // },
-                      // child: SingleProduct(
-                      //   image: orders![index].products[0].images[0],
-                      // ),
-                    // );
+                    return GestureDetector(
+                      onTap: () {
+                        Navigator.pushNamed(
+                          context,
+                          OrderDetailScreen.routeName,
+                          arguments: orders![index],
+                        );
+                      },
+                      child: SingleProduct(
+                        image: orders![index].products[0].images[0],
+                      ),
+                    );
                   },
                 ),
               ),

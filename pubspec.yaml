@@ -19,7 +19,7 @@ publish_to: 'none' # Remove this line if you wish to publish to pub.dev
 version: 1.0.0+1
 
 environment:
-  sdk: ">=2.16.2 <3.0.0"
+  sdk:  ">=2.16.2 <3.0.0" 
 
 # Dependencies specify other packages that your package needs in order to work.
 # To automatically upgrade your package dependencies to the latest versions
@@ -43,8 +43,8 @@ dependencies:
   dotted_border: ^2.1.0
   file_picker: ^6.1.1
   cloudinary_public: ^0.21.0
-  flutter_rating_bar: ^4.0.1
-  pay: ^1.1.2
+  flutter_rating_bar: ^4.0.1 
+  charts_flutter_new: ^0.12.0
 
 dev_dependencies:
   flutter_test:

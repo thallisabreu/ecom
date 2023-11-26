@@ -2,10 +2,12 @@
 import 'package:ecom/features/address/screens/address_screen.dart';
 import 'package:ecom/features/admin/screens/add_product._screeen.dart';
 import 'package:ecom/features/auth/screens/auth_screen.dart';
+import 'package:ecom/features/order_details.dart/screens/order_details.dart';
 import 'package:ecom/features/product_details/screens/product_details_screen.dart';
 import 'package:ecom/features/search/screens/search_screen.dart';
 import 'package:ecom/home/screens/category_deals_screen.dart';
 import 'package:ecom/home/screens/home_screen.dart';
+import 'package:ecom/models/order.dart';
 import 'package:ecom/models/product.dart';
 import 'package:flutter/material.dart';
 
@@ -68,15 +70,15 @@ Route<dynamic> generateRoute(RouteSettings routeSettings) {
         ),
       );
       
-    // case OrderDetailScreen.routeName:
-    //   var order = routeSettings.arguments as Order;
-    //   return MaterialPageRoute(
-    //     settings: routeSettings,
-    //     builder: (_) => OrderDetailScreen(
-    //       order: order,
-    //     ),
-    //   );
-    
+    case OrderDetailScreen.routeName:
+      var order = routeSettings.arguments as Order;
+      return MaterialPageRoute(
+        settings: routeSettings,
+        builder: (_) => OrderDetailScreen(
+          order: order,
+        ),
+      );
+
     default:
       return MaterialPageRoute(
         settings: routeSettings,
