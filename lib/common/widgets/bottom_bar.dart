@@ -1,6 +1,7 @@
 import 'package:ecom/constants/global_variables.dart'; 
 import 'package:badges/badges.dart';
 import 'package:ecom/features/account/screens/account_screen.dart';
+import 'package:ecom/features/cart/screens/cart_screen.dart';
 import 'package:ecom/home/screens/home_screen.dart';
 import 'package:ecom/providers/user_provider.dart';
 import 'package:flutter/material.dart' hide Badge;
@@ -22,7 +23,7 @@ class _BottomBarState extends State<BottomBar> {
   List<Widget> pages = [
     const HomeScreen(),
     const AccountScreen(),
-    const Center(child: Text('Página carrinho'),),
+    const CartScreen(),
   ];
 
   void updatePAge(int page){

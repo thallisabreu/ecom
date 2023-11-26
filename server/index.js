@@ -1,25 +1,33 @@
+// IMPORTS FROM PACKAGES
 const express = require("express");
-const mongoose = require('mongoose');
-const authRouter = require("./routes/auth");
+const mongoose = require("mongoose");
 const adminRouter = require("./routes/admin");
+// IMPORTS FROM OTHER FILES
+const authRouter = require("./routes/auth");
 const productRouter = require("./routes/product");
 const userRouter = require("./routes/user");
 
-const PORT = 3000;
+const PORT = process.env.PORT || 3000;
 const app = express();
 const DB = "mongodb+srv://thallis:ola12345@cluster0.rt48xkp.mongodb.net/?retryWrites=true&w=majority"
 
+// middleware
 app.use(express.json());
 app.use(authRouter);
 app.use(adminRouter);
 app.use(productRouter);
 app.use(userRouter);
 
-mongoose.connect(DB).then(() => {
-    console.log('Conexão deu certo!');
-}).catch((e)=> {console.log(e);
-})
+// Connections
+mongoose
+  .connect(DB)
+  .then(() => {
+    console.log("Connection Successful");
+  })
+  .catch((e) => {
+    console.log(e);
+  });
 
-app.listen(PORT, "0.0.0.0",() => {
-    console.log(`Conectado na porta ${PORT}.`);
+app.listen(PORT, "0.0.0.0", () => {
+  console.log(`connected at port ${PORT}`);
 });

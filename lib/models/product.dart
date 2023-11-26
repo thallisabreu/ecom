@@ -1,7 +1,5 @@
-import 'dart:convert';
-
+import 'dart:convert'; 
 import 'package:ecom/models/rating.dart';
- 
 
 class Product {
   final String name;
