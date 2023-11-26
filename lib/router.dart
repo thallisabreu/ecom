@@ -1,4 +1,5 @@
  import 'package:ecom/common/widgets/bottom_bar.dart';
+import 'package:ecom/features/address/screens/address_screen.dart';
 import 'package:ecom/features/admin/screens/add_product._screeen.dart';
 import 'package:ecom/features/auth/screens/auth_screen.dart';
 import 'package:ecom/features/product_details/screens/product_details_screen.dart';
@@ -58,14 +59,15 @@ Route<dynamic> generateRoute(RouteSettings routeSettings) {
         ),
       );
 
-    // case AddressScreen.routeName:
-    //   var totalAmount = routeSettings.arguments as String;
-    //   return MaterialPageRoute(
-    //     settings: routeSettings,
-    //     builder: (_) => AddressScreen(
-    //       totalAmount: totalAmount,
-    //     ),
-    //   );
+    case AddressScreen.routeName:
+      var totalAmount = routeSettings.arguments as String;
+      return MaterialPageRoute(
+        settings: routeSettings,
+        builder: (_) => AddressScreen(
+          totalAmount: totalAmount,
+        ),
+      );
+      
     // case OrderDetailScreen.routeName:
     //   var order = routeSettings.arguments as Order;
     //   return MaterialPageRoute(
@@ -74,6 +76,7 @@ Route<dynamic> generateRoute(RouteSettings routeSettings) {
     //       order: order,
     //     ),
     //   );
+    
     default:
       return MaterialPageRoute(
         settings: routeSettings,

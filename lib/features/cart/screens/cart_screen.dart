@@ -1,5 +1,6 @@
  import 'package:ecom/common/widgets/custom_buttom.dart';
 import 'package:ecom/constants/global_variables.dart';
+import 'package:ecom/features/address/screens/address_screen.dart';
 import 'package:ecom/features/cart/widgets/cart_product.dart';
 import 'package:ecom/features/cart/widgets/cart_subtotal.dart';
 import 'package:ecom/features/search/screens/search_screen.dart';
@@ -21,11 +22,11 @@ class _CartScreenState extends State<CartScreen> {
   }
 
   void navigateToAddress(int sum) {
-    // Navigator.pushNamed(
-    //   context,
-    //   AddressScreen.routeName,
-    //   arguments: sum.toString(),
-    // );
+    Navigator.pushNamed(
+      context,
+      AddressScreen.routeName,
+      arguments: sum.toString(),
+    );
   }
 
   @override
