@@ -4,7 +4,7 @@ import 'dart:convert';
 import 'package:ecom/common/widgets/bottom_bar.dart';
 import 'package:ecom/constants/error_handling.dart';
 import 'package:ecom/constants/global_variables.dart';
-import 'package:ecom/constants/utils.dart'; 
+import 'package:ecom/constants/utils.dart';
 import 'package:ecom/models/user.dart';
 import 'package:ecom/providers/user_provider.dart';
 import 'package:flutter/material.dart';
@@ -22,13 +22,15 @@ class AuthService {
   }) async {
     try {
       User user = User(
-          id: '',
-          name: name,
-          email: email,
-          password: password,
-          address: '',
-          type: '',
-          token: '');
+        id: '',
+        name: name,
+        email: email,
+        password: password,
+        address: '',
+        type: '',
+        token: '',
+        cart: [],
+      );
 
       http.Response res = await http.post(
         Uri.parse('$uri/api/signup'),
@@ -109,14 +111,16 @@ class AuthService {
       var response = jsonDecode(tokenRes.body);
 
       if (response == true) {
-        http.Response userRes = await http.get(Uri.parse('$uri/'),
-            headers: <String, String>{
-              'Content-Type': 'application/json; charset=UTF-8',
-              'x-auth-token': token
-            },);
-            var userProvider = Provider.of<UserProvider>(context,listen: false);
-            userProvider.setUser(userRes.body);
-      } 
+        http.Response userRes = await http.get(
+          Uri.parse('$uri/'),
+          headers: <String, String>{
+            'Content-Type': 'application/json; charset=UTF-8',
+            'x-auth-token': token
+          },
+        );
+        var userProvider = Provider.of<UserProvider>(context, listen: false);
+        userProvider.setUser(userRes.body);
+      }
     } catch (e) {
       showSnackBar(context, e.toString());
     }

@@ -1,6 +1,5 @@
-
-import 'package:ecom/constants/global_variables.dart';
-import 'package:ecom/features/search/screens/search_screens.dart';
+ import 'package:ecom/constants/global_variables.dart';
+import 'package:ecom/features/search/screens/search_screen.dart'; 
 import 'package:ecom/home/widgets/address_box.dart';
 import 'package:ecom/home/widgets/carousel_image.dart';
 import 'package:ecom/home/widgets/deal_of_day.dart';
