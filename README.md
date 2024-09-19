@@ -12,8 +12,7 @@ O **ECOM** é um aplicativo de compras e-commerce desenvolvido com as tecnologia
 - [Node.js](https://nodejs.org/)
 - [Express](https://expressjs.com/)
 - [MongoDB](https://www.mongodb.com/)
-- [Mongoose](https://mongoosejs.com/)
-- [Cloudinary](https://cloudinary.com/)
+- [Mongoose](https://mongoosejs.com/) 
 - [Provedor (Flutter State Management)](https://pub.dev/packages/provider)
 
 ## Features
@@ -30,22 +29,7 @@ O **ECOM** é um aplicativo de compras e-commerce desenvolvido com as tecnologia
 - Visualizando todos os produtos
 - Adicionando Produtos
 - Excluindo Produtos
-
-### Lado do servidor
-```bash
-  cd server
-  npm install
-  npm run dev (for continuous development)
-  OR
-  npm start (to run script 1 time)
-```
-
-### Lado do cliente
-```bash
-  flutter pub get
-  open -a simulator (to get iOS Simulator)
-  flutter run
-```
+ 
 
 ## Tecnologia usada
 **Servidor**: Node.js, Express, Mongoose, MongoDB, Cloudinary
